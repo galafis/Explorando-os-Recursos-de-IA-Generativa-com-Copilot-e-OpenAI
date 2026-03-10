@@ -1,92 +1,128 @@
-# 🤖 Explorando Os Recursos De Ia Generativa Com Copilot E Openai
+# Generative Text Exploration Toolkit
 
-> Professional Unknown project implementing Explorando Os Recursos De Ia Generativa Com Copilot E Openai
+> DIO - Exploring Generative Resources
 
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://python.org)
 
-[English](#english) | [Português](#português)
+[English](#english) | [Portugues](#portugues)
 
 ---
 
 ## English
 
-### 🎯 Overview
+### Overview
 
-**Explorando Os Recursos De Ia Generativa Com Copilot E Openai** is a production-grade Unknown application that showcases modern software engineering practices including clean architecture, comprehensive testing, containerized deployment, and CI/CD readiness.
+**Generative Text Exploration Toolkit** is a Python framework for exploring generative text capabilities through prompt engineering, text processing pipelines, evaluation metrics, and text similarity analysis. The project implements core NLP concepts from scratch without external ML dependencies.
 
-The codebase comprises **0 lines** of source code organized across **0 modules**, following industry best practices for maintainability, scalability, and code quality.
+The codebase comprises **1,200+** lines of source code organized across **6 modules**, covering prompt management, text generation pipelines, BLEU/ROUGE evaluation, TF-IDF similarity, and tokenization utilities.
 
-### ✨ Key Features
+### Key Features
 
-- **🤖 ML Pipeline**: End-to-end machine learning workflow from data to deployment
-- **🔬 Feature Engineering**: Automated feature extraction and transformation
-- **📊 Model Evaluation**: Comprehensive metrics and cross-validation
-- **🚀 Model Serving**: Production-ready prediction API
+- **Prompt Template Engine**: Variable injection with defaults, template registry, and validation
+- **Few-Shot Builder**: Configurable few-shot prompt construction with chat format support
+- **Text Pipeline**: Modular text processing pipeline with mock generation
+- **Evaluation Metrics**: BLEU score, ROUGE-N, and ROUGE-L implementations
+- **Text Similarity**: TF-IDF cosine similarity with corpus management and querying
+- **Tokenizer**: Whitespace tokenizer with stopwords, vocabulary building, and encoding
 
-### 🏗️ Architecture
+### Architecture
 
 ```mermaid
 graph TB
-    subgraph Core["🏗️ Core"]
-        A[Main Module]
-        B[Business Logic]
-        C[Data Processing]
+    subgraph Prompts["prompts/"]
+        A[template_engine.py<br>Template Management]
+        B[few_shot.py<br>Few-Shot Builder]
     end
-    
-    subgraph Support["🔧 Support"]
-        D[Configuration]
-        E[Utilities]
-        F[Tests]
+
+    subgraph Pipeline["pipelines/"]
+        C[text_pipeline.py<br>Processing Pipeline]
     end
-    
-    A --> B --> C
-    D --> A
-    E --> B
-    F -.-> B
-    
-    style Core fill:#e1f5fe
-    style Support fill:#f3e5f5
+
+    subgraph Eval["evaluation/"]
+        D[text_metrics.py<br>BLEU / ROUGE]
+    end
+
+    subgraph Embed["embeddings/"]
+        E[similarity.py<br>TF-IDF Cosine]
+    end
+
+    subgraph Utils["utils/"]
+        F[tokenizer.py<br>Tokenization]
+    end
+
+    A --> C
+    B --> C
+    C --> D
+    F --> E
+    F --> D
+
+    style Prompts fill:#e1f5fe
+    style Pipeline fill:#e8f5e9
+    style Eval fill:#fff3e0
+    style Embed fill:#f3e5f5
+    style Utils fill:#fce4ec
 ```
 
-### 🚀 Quick Start
+### Quick Start
 
 #### Prerequisites
+
+- Python 3.9+
+- pip
 
 #### Installation
 
 ```bash
 git clone https://github.com/galafis/Explorando-os-Recursos-de-IA-Generativa-com-Copilot-e-OpenAI.git
 cd Explorando-os-Recursos-de-IA-Generativa-com-Copilot-e-OpenAI
+pip install -r requirements.txt
 ```
 
-### 📁 Project Structure
+#### Usage
+
+```bash
+python main.py
+pytest tests/ -v
+```
+
+### Project Structure
 
 ```
 Explorando-os-Recursos-de-IA-Generativa-com-Copilot-e-OpenAI/
+├── main.py
+├── requirements.txt
+├── src/
+│   ├── prompts/
+│   │   ├── template_engine.py
+│   │   └── few_shot.py
+│   ├── pipelines/
+│   │   └── text_pipeline.py
+│   ├── evaluation/
+│   │   └── text_metrics.py
+│   ├── embeddings/
+│   │   └── similarity.py
+│   └── utils/
+│       └── tokenizer.py
+├── tests/
+│   ├── test_prompts.py
+│   └── test_metrics.py
 ├── LICENSE
 └── README.md
 ```
 
-### 🛠️ Tech Stack
+### Tech Stack
 
-| Technology | Description | Role |
-|------------|-------------|------|
+| Technology | Description         | Role              |
+|-----------|---------------------|-------------------|
+| Python    | Programming language | Core runtime      |
+| Pytest    | Testing framework    | Unit testing      |
 
-### 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### 📄 License
+### License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### 👤 Author
+### Author
 
 **Gabriel Demetrios Lafis**
 - GitHub: [@galafis](https://github.com/galafis)
@@ -94,79 +130,88 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## Português
+## Portugues
 
-### 🎯 Visão Geral
+### Visao Geral
 
-**Explorando Os Recursos De Ia Generativa Com Copilot E Openai** é uma aplicação Unknown de nível profissional que demonstra práticas modernas de engenharia de software, incluindo arquitetura limpa, testes abrangentes, implantação containerizada e prontidão para CI/CD.
+**Generative Text Exploration Toolkit** e um framework Python para explorar capacidades de texto generativo atraves de engenharia de prompts, pipelines de processamento de texto, metricas de avaliacao e analise de similaridade textual. O projeto implementa conceitos fundamentais de NLP do zero, sem dependencias externas de ML.
 
-A base de código compreende **0 linhas** de código-fonte organizadas em **0 módulos**, seguindo as melhores práticas do setor para manutenibilidade, escalabilidade e qualidade de código.
+A base de codigo compreende **1.200+** linhas de codigo-fonte organizadas em **6 modulos**, cobrindo gerenciamento de prompts, pipelines de geracao de texto, avaliacao BLEU/ROUGE, similaridade TF-IDF e utilitarios de tokenizacao.
 
-### ✨ Funcionalidades Principais
+### Funcionalidades Principais
 
-- **🤖 ML Pipeline**: End-to-end machine learning workflow from data to deployment
-- **🔬 Feature Engineering**: Automated feature extraction and transformation
-- **📊 Model Evaluation**: Comprehensive metrics and cross-validation
-- **🚀 Model Serving**: Production-ready prediction API
+- **Motor de Templates de Prompt**: Injecao de variaveis com valores padrao, registro de templates e validacao
+- **Construtor Few-Shot**: Construcao configuravel de prompts few-shot com suporte a formato de chat
+- **Pipeline de Texto**: Pipeline modular de processamento de texto com geracao simulada
+- **Metricas de Avaliacao**: Implementacoes de BLEU score, ROUGE-N e ROUGE-L
+- **Similaridade de Texto**: Similaridade por cosseno TF-IDF com gerenciamento de corpus e consultas
+- **Tokenizador**: Tokenizador por espacos com stopwords, construcao de vocabulario e codificacao
 
-### 🏗️ Arquitetura
+### Arquitetura
 
 ```mermaid
 graph TB
-    subgraph Core["🏗️ Core"]
-        A[Main Module]
-        B[Business Logic]
-        C[Data Processing]
+    subgraph Prompts["prompts/"]
+        A[template_engine.py<br>Gerenciamento de Templates]
+        B[few_shot.py<br>Construtor Few-Shot]
     end
-    
-    subgraph Support["🔧 Support"]
-        D[Configuration]
-        E[Utilities]
-        F[Tests]
+
+    subgraph Pipeline["pipelines/"]
+        C[text_pipeline.py<br>Pipeline de Processamento]
     end
-    
-    A --> B --> C
-    D --> A
-    E --> B
-    F -.-> B
-    
-    style Core fill:#e1f5fe
-    style Support fill:#f3e5f5
+
+    subgraph Eval["evaluation/"]
+        D[text_metrics.py<br>BLEU / ROUGE]
+    end
+
+    subgraph Embed["embeddings/"]
+        E[similarity.py<br>Cosseno TF-IDF]
+    end
+
+    subgraph Utils["utils/"]
+        F[tokenizer.py<br>Tokenizacao]
+    end
+
+    A --> C
+    B --> C
+    C --> D
+    F --> E
+    F --> D
+
+    style Prompts fill:#e1f5fe
+    style Pipeline fill:#e8f5e9
+    style Eval fill:#fff3e0
+    style Embed fill:#f3e5f5
+    style Utils fill:#fce4ec
 ```
 
-### 🚀 Início Rápido
+### Inicio Rapido
 
-#### Prerequisites
+#### Pre-requisitos
 
-#### Installation
+- Python 3.9+
+- pip
+
+#### Instalacao
 
 ```bash
 git clone https://github.com/galafis/Explorando-os-Recursos-de-IA-Generativa-com-Copilot-e-OpenAI.git
 cd Explorando-os-Recursos-de-IA-Generativa-com-Copilot-e-OpenAI
+pip install -r requirements.txt
 ```
 
-### 📁 Estrutura do Projeto
+#### Uso
 
+```bash
+python main.py
+pytest tests/ -v
 ```
-Explorando-os-Recursos-de-IA-Generativa-com-Copilot-e-OpenAI/
-├── LICENSE
-└── README.md
-```
 
-### 🛠️ Stack Tecnológica
+### Licenca
 
-| Tecnologia | Descrição | Papel |
-|------------|-----------|-------|
+Este projeto esta licenciado sob a Licenca MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-### 🤝 Contribuindo
-
-Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request.
-
-### 📄 Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
-
-### 👤 Autor
+### Autor
 
 **Gabriel Demetrios Lafis**
 - GitHub: [@galafis](https://github.com/galafis)
